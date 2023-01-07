@@ -39,7 +39,17 @@ const colors = {
 };
 
 const PlayNumber = (props) => (
-  <button className="number">{props.number}</button>
+  <button className="number" onClick={() => console.log("NUM" + props.number)}>
+    {props.number}
+  </button>
+);
+
+const StarDisplay = (props) => (
+  <>
+    {utils.range(1, props.count).map((starId) => (
+      <div key={starId} className="star" />
+    ))}
+  </>
 );
 
 function App() {
@@ -51,12 +61,13 @@ function App() {
         Pick 1 or more numbers that sum to the number of stars
       </div>
       <div className="body">
-        <div className="stars">
-          {utils.range(1, stars).map((number) => (
+        <div className="left">
+          {/* {utils.range(1, stars).map((number) => (
             <div key={stars} className="star" />
-          ))}
+          ))} */}
+          <StarDisplay count={stars} />
         </div>
-        <div className="play-numbers">
+        <div className="right">
           {utils.range(1, 10).map((number) => (
             <PlayNumber key={number} number={number} />
           ))}

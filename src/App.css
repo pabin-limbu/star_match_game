@@ -13,12 +13,12 @@
   margin: 10px;
   text-align: center;
 }
-.stars {
+.left {
   width: 50%;
   text-align: center;
   border: thin solid lightgray;
 }
-.play-numbers {
+.right {
   width: 50%;
   text-align: center;
   padding: 10px;
