@@ -1,35 +1,47 @@
+/* body {
+  background-color: red;
+}
+
 .game {
+  background-color: aquamarine;
   max-width: 500px;
   margin: 0 auto;
+  width: 100%;
+  height: 100%;
 }
-.body {
-  display: flex;
-}
+
+.body {}
+
 .help {
   color: #666;
   margin: 10px;
   text-align: center;
 }
+
 .left {
-  width: 50%;
+
   text-align: center;
   border: thin solid lightgray;
 }
+
 .right {
   width: 50%;
   text-align: center;
   padding: 10px;
   border: thin solid lightgray;
 }
+
 .star {
   display: inline-block;
   margin: 0 15px;
 }
+
 .star:after {
-  /* creating star symbol */
+
   content: "\2605";
   font-size: 45px;
 }
+
 .number {
   background-color: #eee;
   border: thin solid #ddd;
@@ -38,14 +50,138 @@
   margin: 10px;
   font-size: 25px;
 }
+
 .play-number:focus,
 play-number:active {
   outline: none;
   border: thin solid #ddd;
 }
+
 .game-done .message {
   font-size: 250%;
   color: green;
   font-weight: bold;
   margin: 15px;
+} */
+
+
+body {
+  background-color: aquamarine;
+  /* background-image: url("../../../public/galaxy2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover; */
+  background-image: url(../../../public/meteor.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+
+
+
+
+}
+
+.title {
+  text-align: center;
+  text-transform: uppercase;
+  padding-top: 20px;
+  color: white;
+}
+
+.game {
+  /* background-color: bisque; */
+  height: 100vh;
+}
+
+.help {
+  /* background-color: red; */
+  padding: 10px 10px;
+
+}
+
+.help h4 {
+  text-align: center;
+  color: white;
+}
+
+.playGround {
+  /* background-color: green; */
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.starDisplay {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.starDisplay,
+.numberDisplay {
+  /* background-color: aliceblue; */
+  width: 100%;
+  height: 220px;
+  border: 1px solid gray;
+  background: rgba(21, 21, 23, 0.4);
+
+}
+
+.numberDisplay {
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 15px;
+
+}
+
+.numberDisplay {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background: rgba(21, 21, 23, 0.4);
+}
+
+.number {
+  background-color: #eee;
+  border: thin solid #ddd;
+
+  height: 50px;
+  margin: 10px;
+  font-size: 25px;
+
+}
+
+.btnPlayAgain {
+  padding: 20px;
+}
+
+.timer {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.game-done .message {
+  font-size: 250%;
+  color: green;
+  font-weight: bold;
+  margin: 15px;
+}
+
+.play-number:focus,
+.play-number:active {
+  outline: none;
+  border: thin solid #ddd;
+}
+
+.timer p {
+  color: white;
+
+}
+
+.btnPlayAgain {
+  font-size: 20px;
+  text-transform: capitalize;
 }
