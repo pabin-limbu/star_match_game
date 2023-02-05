@@ -6,9 +6,10 @@ const useGameState = (utils) => {
     const [availableNums, setAvailableNums] = useState(utils.range(1, 9));
     const [candidateNums, setCandidatesNums] = useState([]);
     const [secondsLeft, setSecondLeft] = useState(10);
+    const [startGame, setStartGame] = useState(false)
     //sideEffect timer
     useEffect(() => {
-        if (secondsLeft > 0 && availableNums.length > 0) {
+        if (startGame && secondsLeft > 0 && availableNums.length > 0) {
             const timerId = setTimeout(() => {
                 setSecondLeft(secondsLeft - 1);
             }, 1000);
@@ -40,6 +41,8 @@ const useGameState = (utils) => {
         candidateNums,
         secondsLeft,
         setGameState,
+        startGame,
+        setStartGame
     ];
 };
 

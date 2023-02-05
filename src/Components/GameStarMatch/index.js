@@ -35,10 +35,17 @@ const PlayAgain = (props) => {
     </div>
   );
 };
+const StartGame = (props) => {
+  return (
+    <div className="game-start">
+      <button className="btnStart" onClick={props.onClick}>Start Game</button>
+    </div>
+  );
+};
 
 function GameStarMatch(props) {
   //using custom hook to manage the state of gamestarmatch component.
-  const [stars, availableNums, candidateNums, secondsLeft, setGameState] =
+  const [stars, availableNums, candidateNums, secondsLeft, setGameState, setStartGame, startGame] =
     useGameState(utils);
 
   //other logic.
@@ -71,32 +78,43 @@ function GameStarMatch(props) {
     setGameState(newCandidateNums);
   };
 
+
+
   return (
     <div className="game" background="galaxy.jpg">
-      <div className="title"> <h3> &#9733;&#9733; star war &#9733;&#9733;</h3></div>
-      <div className="help">
-        <h4>
-          Pick one or more numbers that sum to the number of stars.
-        </h4>
-      </div>
-      <div className="playGround">
-        <div className="starDisplay">
-          {gameStatus !== "active" ? (
-            <PlayAgain onClick={props.startNewGame} gameStatus={gameStatus} />
-          ) : (
-            <StarDIsplay count={stars} />
-          )}
+      <div className="container">
+
+        <div className="title"> <h3> &#9733;&#9733; star war &#9733;&#9733;</h3></div>
+        <div className="help">
+          <h4>
+            Pick one or more numbers that sum to the number of stars.
+          </h4>
         </div>
-        <div className="timer"><p>Time remaining : {secondsLeft}s</p></div>
-        <div className="numberDisplay">
-          {utils.range(1, 9).map((number) => (
-            <PlayNumber
-              key={number}
-              number={number}
-              status={numberStatus(number)}
-              onClick={onNumberClick}
-            />
-          ))}
+        <div className="playGround">
+          <div className="starDisplay">
+
+            {gameStatus !== "active" ? (
+              <PlayAgain onClick={props.startNewGame} gameStatus={gameStatus} />
+            ) : startGame ? <StartGame onClick={() => {
+              setStartGame(true)
+            }} /> : (
+              <StarDIsplay count={stars} />
+            )}
+
+
+
+          </div>
+          <div className="timer"><p>Time remaining : {secondsLeft}s</p></div>
+          <div className="numberDisplay">
+            {utils.range(1, 9).map((number) => (
+              <PlayNumber
+                key={number}
+                number={number}
+                status={numberStatus(number)}
+                onClick={onNumberClick}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </div>
